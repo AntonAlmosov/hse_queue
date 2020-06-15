@@ -7,6 +7,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token  
 
   def continue_sign_up
+    if(current_user.name)
+      redirect_to schedule_index_path
+    end
   end
 
   def update_user
@@ -29,7 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-    'users/continue_sign_up'
+    '/users/continue_sign_up'
   end
 
   # GET /resource/sign_up

@@ -6,5 +6,6 @@
     <%= f.email_field :email, autocomplete: "email", placeholder: 'Электронная почта' %>
     <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Пароль' %>
     <%= f.submit "Продолжить" %>
+    <%= link_to "У меня уже есть аккаунт →", new_user_session_path, class: 'bottom-button' %>
   </div>
 <% end %>
