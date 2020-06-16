@@ -23,6 +23,7 @@ class LessonController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @avatar = polymorphic_url(@user.avatar)
+    @is_teacher = @user.teacher?
     lesson = Lesson.find(params[:id])
     @lesson = {id: lesson.id, name: lesson.name, user: lesson.user.first, time: lesson.time, classroom: lesson.classroom}
   end

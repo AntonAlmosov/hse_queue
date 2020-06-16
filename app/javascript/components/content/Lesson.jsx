@@ -83,7 +83,7 @@ export default ({ lesson, isTeacher, user }) => {
             Следующий
           </div>
         )}
-        {!isNext && (
+        {!isNext && !isTeacher && (
           <>
             {inQueue ? (
               <div className="default-button inversed" onClick={quitQueue}>

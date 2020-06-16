@@ -1,2 +1,2 @@
 <%= react_component("headers/ScheduleHeader", { isTeacher: false, avatar: @avatar, title: 'Очередь' }) %>
-<%= react_component("content/Lesson", { lesson: @lesson, isTeacher: false, user: @user }) %>
+<%= react_component("content/Lesson", { lesson: @lesson, isTeacher: @is_teacher, user: @user }) %>
