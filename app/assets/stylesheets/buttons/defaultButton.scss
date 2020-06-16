@@ -1,0 +1,14 @@
+.default-button {
+  user-select: none;
+  margin-top: 50px;
+  font-family: "Steinbeck";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 55px;
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  line-height: 24px;
+}

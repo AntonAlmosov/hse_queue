@@ -1,5 +1,7 @@
 import React from "react";
 
+import { getWeekDay } from "../../misc/getWeekDay";
+
 export default () => {
   const schedule = [
     [
@@ -7,7 +9,7 @@ export default () => {
         id: 1,
         url: "/lesson/1",
         name: "Кураторские дисцицлины",
-        teacher: "Захар День",
+        user: { name: "Захар День" },
         time: "18:00",
         classroom: "365 ауд.",
       },
@@ -15,7 +17,7 @@ export default () => {
         id: 2,
         url: "/lesson/1",
         name: "Кураторские дисцицлины",
-        teacher: "Захар День",
+        user: { name: "Захар День" },
         time: "18:00",
         classroom: "365 ауд.",
       },
@@ -27,7 +29,7 @@ export default () => {
         id: 2,
         url: "/lesson/1",
         name: "Кураторские дисцицлины",
-        teacher: "Захар День",
+        user: { name: "Захар День" },
         time: "18:00",
         classroom: "365 ауд.",
       },
@@ -63,7 +65,7 @@ const LessonCard = ({ lesson }) => {
   return (
     <a href={lesson.url} className="lesson-card">
       <h3>{lesson.name}</h3>
-      <h4>{lesson.teacher}</h4>
+      <h4>{lesson.user.name}</h4>
       <hr />
       <div className="captions">
         <span>{lesson.time}</span>
@@ -71,21 +73,4 @@ const LessonCard = ({ lesson }) => {
       </div>
     </a>
   );
-};
-
-const getWeekDay = (i) => {
-  switch (i) {
-    case 0:
-      return "Пн";
-    case 1:
-      return "Вт";
-    case 2:
-      return "Ср";
-    case 3:
-      return "Чт";
-    case 4:
-      return "Пт";
-    case 5:
-      return "Сб";
-  }
 };

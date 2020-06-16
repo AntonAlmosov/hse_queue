@@ -3,6 +3,8 @@ import axios from "axios";
 
 import ImagePicker from "../util/ImagePicker";
 import GroupPicker from "../util/GroupPicker";
+import DefaultButton from "../buttons/DefaultButton";
+import ItemPicker from "../buttons/ItemPicker";
 
 export default ({ initialButtonText }) => {
   const [avatar, setAvatar] = React.useState(null);
@@ -69,9 +71,10 @@ export default ({ initialButtonText }) => {
         )}
       </div>
       {valid && (
-        <div className="submit" onClick={() => handleFormSubmission()}>
-          {buttonText}
-        </div>
+        <DefaultButton
+          buttonLabel={buttonText}
+          onClick={handleFormSubmission}
+        />
       )}
     </div>
   );

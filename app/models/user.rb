@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
   has_one_attached :avatar
-  has_one :group, through: :group_users
+  has_many :group_users
+  has_many :groups, through: :group_users
   
   enum role: [:student, :teacher, :admin]
   after_initialize :set_default_role, :if => :new_record?
