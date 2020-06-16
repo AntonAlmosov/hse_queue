@@ -10,5 +10,14 @@ Rails.application.routes.draw do
   resources :group, only: [:index]
   resources :schedule, only: [:index]
   resources :lesson, only: [:new, :create, :show]
+  resources :entry, only: [:create] do
+    collection do
+      post :load_queue
+      post :destroy_entry
+      post :next_entry
+    end
+  end
+
+  mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

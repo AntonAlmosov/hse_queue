@@ -1,2 +1,97 @@
 .lesson-wrapper {
+  width: 1240px;
+  margin: 168px auto 0;
+  display: flex;
+  justify-content: space-between;
+  hr {
+    border: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+  }
+  .lesson-info {
+    font-family: "Steinbeck";
+    width: 295px;
+    h3 {
+      font-size: 32px;
+      line-height: 38px;
+      margin-bottom: 10px;
+    }
+    h4 {
+      font-style: italic;
+      font-size: 32px;
+      line-height: 32px;
+      margin-bottom: 10px;
+    }
+    hr {
+      margin-bottom: 10px;
+    }
+    .captions {
+      width: 295px;
+      display: flex;
+      justify-content: space-between;
+      span {
+        font-size: 24px;
+        line-height: 24px;
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+  .lesson-actions {
+    width: 295px;
+    .lesson-header {
+      width: 295px;
+      margin-bottom: 32px;
+      h3 {
+        font-family: "Steinbeck";
+        font-size: 32px;
+        line-height: 38px;
+        margin-bottom: 10;
+      }
+    }
+    .default-button {
+      margin-top: 0;
+      box-sizing: border-box;
+      &.inversed {
+        color: black;
+        border: 2px solid black;
+        background-color: white;
+      }
+    }
+  }
+  .queue-wrapper {
+    width: 400px;
+    .queue-header {
+      width: 400px;
+      margin-bottom: 32px;
+      h3 {
+        font-family: "Steinbeck";
+        font-size: 32px;
+        line-height: 38px;
+        margin-bottom: 10;
+      }
+    }
+    .author-card {
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      img {
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+        object-position: center;
+      }
+      span {
+        width: 329px;
+        display: block;
+        font-family: "Steinbeck";
+        font-size: 18px;
+        line-height: 18px;
+      }
+    }
+  }
 }
