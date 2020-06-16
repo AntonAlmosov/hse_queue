@@ -4,14 +4,21 @@ import axios from "axios";
 import ImagePicker from "../util/ImagePicker";
 import GroupPicker from "../util/GroupPicker";
 import DefaultButton from "../buttons/DefaultButton";
-import ItemPicker from "../buttons/ItemPicker";
 
-export default ({ initialButtonText }) => {
-  const [avatar, setAvatar] = React.useState(null);
+export default ({
+  initialButtonText,
+  initialAvatar,
+  initialName,
+  initialRole,
+  initialGroup,
+}) => {
+  const [avatar, setAvatar] = React.useState(initialAvatar || null);
   const [avatarData, setAvatarData] = React.useState(null);
-  const [name, setName] = React.useState("");
-  const [role, setRole] = React.useState(null);
-  const [group, setGroup] = React.useState(null);
+  const [name, setName] = React.useState(initialName || "");
+  const [role, setRole] = React.useState(
+    initialRole !== undefined ? initialRole : null
+  );
+  const [group, setGroup] = React.useState(initialGroup || null);
   const [valid, setValid] = React.useState(false);
   const [buttonText, setButtonText] = React.useState(initialButtonText);
 
@@ -36,11 +43,10 @@ export default ({ initialButtonText }) => {
     setButtonText("Обработка...");
 
     const formData = new FormData();
-    formData.append("avatar", avatarData);
+    if (avatar !== initialAvatar) formData.append("avatar", avatarData);
     formData.append("name", name);
     formData.append("role", role);
     if (group) formData.append("group", group.id);
-
     axios
       .post("/users/update_user", formData, {
         headers: {
@@ -63,6 +69,7 @@ export default ({ initialButtonText }) => {
         type="text"
         onChange={(e) => setName(e.target.value)}
         placeholder="Святослав Иванов"
+        value={name}
       />
       <div className="selectors-wrapper">
         <PickRole role={role} setRole={setRole} setGroup={setGroup} />

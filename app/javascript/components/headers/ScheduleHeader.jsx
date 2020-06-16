@@ -10,7 +10,9 @@ export default ({ isTeacher, avatar, title }) => {
         <h1>{title}</h1>
         <div>
           {isTeacher && <a href="/lesson/new">+ Создать пару</a>}
-          <img src={avatar} />
+          <a href="/users/settings">
+            <img src={avatar} />
+          </a>
         </div>
       </div>
     </div>

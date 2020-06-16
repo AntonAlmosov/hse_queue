@@ -1,2 +1,2 @@
-<%= react_component("headers/ScheduleHeader", { avatar: @avatar, isTeacher: false }) %>
-<%= react_component("forms/UserEdit", { initialButtonText: 'Сохранить', name: @name, avatar: @avatar, group: @group, role: @role }) %>
+<%= react_component("headers/ScheduleHeader", { avatar: @avatar, isTeacher: false, title: 'Настройки пользователя' }) %>
+<%= react_component("forms/UserEdit", { initialButtonText: 'Сохранить', initialName: @name, initialAvatar: @avatar, initialGroup: @group, initialRole: @role }) %>

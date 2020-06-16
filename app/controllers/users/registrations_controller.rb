@@ -7,31 +7,45 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token  
 
   def settings
-    user = User.find(current_user.id)
+    if current_user == nil
+      redirect_to new_user_session_path
+    else
+      user = User.find(current_user.id)
 
-    @name = user.name
-    @avatar = polymorphic_url(user.avatar)
-    @role = 1
-    if user.role == 'student'
+      @name = user.name
+      @avatar = polymorphic_url(user.avatar)
       @role = 1
-      @group = user.group
+      if user.role == 'student'
+        @role = 0
+        @group = user.groups.first
+      end
     end
   end
 
   def continue_sign_up
-    if(current_user.name)
-      redirect_to schedule_index_path
+    if current_user == nil
+      redirect_to new_user_session_path
+    else
+      if current_user.name
+        redirect_to schedule_index_path
+      end
     end
   end
 
   def update_user
     user = User.find(current_user.id)
     user.name = params[:name]
-    user.avatar = params[:avatar]
+    if params.has_key?(:avatar)
+      user.avatar = params[:avatar]
+    end
     if params[:role] == 0
-      user.role == 'student'
+      user.student == true
     elsif params[:role] == 1
-      user.role == 'teacher'
+      user.teacher == true
+    end
+
+    user.group_users.each do |group|
+      group.destroy
     end
 
     if user.save!
