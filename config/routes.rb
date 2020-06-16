@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'user/update_user'
+  root to: 'home#index'
   devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
     get 'users/continue_sign_up', to: "users/registrations#continue_sign_up"

@@ -1,2 +1,3 @@
 <%= react_component("headers/ScheduleHeader", { avatar: @avatar, isTeacher: false, title: 'Настройки пользователя' }) %>
 <%= react_component("forms/UserEdit", { initialButtonText: 'Сохранить', initialName: @name, initialAvatar: @avatar, initialGroup: @group, initialRole: @role }) %>
+<%= link_to 'Выйти из аккаунта →', destroy_user_session_path, method: :delete, class: 'logout'%>

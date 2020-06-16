@@ -78,7 +78,7 @@ export default ({ lesson, isTeacher, user }) => {
           <h3>Действия</h3>
           <hr />
         </div>
-        {(isNext || isTeacher) && (
+        {(isNext || isTeacher) && queue.length != 0 && (
           <div className="default-button" onClick={nextQueue}>
             Следующий
           </div>

@@ -1,0 +1,35 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.home-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  h1 {
+    font-family: "Steinbeck";
+    font-size: 262px;
+    line-height: 262px;
+  }
+  .buttons-wrapper {
+    width: 822px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 41;
+    .default-button {
+      margin-top: 0;
+      width: 401px;
+      text-decoration: none;
+      color: white;
+      box-sizing: border-box;
+      &.inversed {
+        color: black;
+        border: 2px solid black;
+        background-color: #fff;
+      }
+    }
+  }
+}

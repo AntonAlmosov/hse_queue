@@ -10,7 +10,7 @@ class ScheduleController < ApplicationController
       groups = user.groups
       groups.each do |group|
         (0...5).each do |weekday|
-          group.lessons.where(weekday: weekday).each do |lesson|
+          group.lessons.where(weekday: weekday).order(:time).each do |lesson|
             @schedule[weekday].push({id: lesson.id, url: lesson_path(lesson.id), name: lesson.name, user: lesson.user.first, time: lesson.time, classroom: lesson.classroom})
           end
         end
@@ -18,7 +18,7 @@ class ScheduleController < ApplicationController
     end
     if user.role === 'teacher'
       (0...5).each do |weekday|
-        user.lessons.where(weekday: weekday).each do |lesson|
+        user.lessons.where(weekday: weekday).order(:time).each do |lesson|
           @schedule[weekday].push({id: lesson.id, url: lesson_path(lesson.id), name: lesson.name, user: lesson.user.first, time: lesson.time, classroom: lesson.classroom})
         end
       end
