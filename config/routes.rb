@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
     get 'users/continue_sign_up', to: "users/registrations#continue_sign_up"
+    get 'users/settings', to: "users/registrations#settings"
     post 'users/update_user', to: "users/registrations#update_user"
   end
 

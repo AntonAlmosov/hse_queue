@@ -6,6 +6,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token  
 
+  def settings
+    user = User.find(current_user.id)
+
+    @name = user.name
+    @avatar = polymorphic_url(user.avatar)
+    @role = 1
+    if user.role == 'student'
+      @role = 1
+      @group = user.group
+    end
+  end
+
   def continue_sign_up
     if(current_user.name)
       redirect_to schedule_index_path

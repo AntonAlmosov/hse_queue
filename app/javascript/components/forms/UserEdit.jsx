@@ -4,14 +4,14 @@ import axios from "axios";
 import ImagePicker from "../util/ImagePicker";
 import GroupPicker from "../util/GroupPicker";
 
-export default () => {
+export default ({ initialButtonText }) => {
   const [avatar, setAvatar] = React.useState(null);
   const [avatarData, setAvatarData] = React.useState(null);
   const [name, setName] = React.useState("");
   const [role, setRole] = React.useState(null);
   const [group, setGroup] = React.useState(null);
   const [valid, setValid] = React.useState(false);
-  const [buttonText, setButtonText] = React.useState("Зарегистрироваться");
+  const [buttonText, setButtonText] = React.useState(initialButtonText);
 
   React.useEffect(() => {
     if (role == 0 && avatar && name && group) {
