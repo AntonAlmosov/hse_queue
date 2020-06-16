@@ -1,13 +1,13 @@
 .header-wrapper {
   top: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 88px;
   background-color: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
   .header {
-    width: 1440px;
+    width: 1240px;
     height: 88px;
     margin: 0 auto;
     position: relative;

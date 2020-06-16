@@ -1,1 +1,2 @@
 <%= react_component("headers/ScheduleHeader", { isTeacher: @is_teacher, avatar: @avatar }) %>
+<%= react_component("content/Schedule", { lessons: @lessons, date: @date }) %>
