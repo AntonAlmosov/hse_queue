@@ -74,6 +74,7 @@ export default () => {
         <input
           className="classroom"
           onChange={(e) => setClassroom(e.target.value)}
+          value={classroom}
           placeholder={"Аудитория"}
           autoComplete={"false"}
         />

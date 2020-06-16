@@ -1,42 +1,9 @@
 import React from "react";
 
 import { getWeekDay } from "../../misc/getWeekDay";
+import { getTime } from "../../misc/getTime";
 
-export default () => {
-  const schedule = [
-    [
-      {
-        id: 1,
-        url: "/lesson/1",
-        name: "Кураторские дисцицлины",
-        user: { name: "Захар День" },
-        time: "18:00",
-        classroom: "365 ауд.",
-      },
-      {
-        id: 2,
-        url: "/lesson/1",
-        name: "Кураторские дисцицлины",
-        user: { name: "Захар День" },
-        time: "18:00",
-        classroom: "365 ауд.",
-      },
-    ],
-    [],
-    [],
-    [
-      {
-        id: 2,
-        url: "/lesson/1",
-        name: "Кураторские дисцицлины",
-        user: { name: "Захар День" },
-        time: "18:00",
-        classroom: "365 ауд.",
-      },
-    ],
-    [],
-    [],
-  ];
+export default ({ schedule }) => {
   return (
     <div className="calendar-wrapper">
       {schedule.map((lessons, i) => {
@@ -68,7 +35,7 @@ const LessonCard = ({ lesson }) => {
       <h4>{lesson.user.name}</h4>
       <hr />
       <div className="captions">
-        <span>{lesson.time}</span>
+        <span>{getTime(lesson.time)}</span>
         <span>{lesson.classroom}</span>
       </div>
     </a>

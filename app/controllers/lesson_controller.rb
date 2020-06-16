@@ -4,6 +4,9 @@ class LessonController < ApplicationController
 
   def new
     user = User.find(current_user.id)
+    if user.role == 'student'
+      redirect_to schedule_index_path
+    end
     @avatar = polymorphic_url(user.avatar)
   end
 
