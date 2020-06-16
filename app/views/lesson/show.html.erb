@@ -1,2 +1,2 @@
-<h1>Lesson#show</h1>
-<p>Find me in app/views/lesson/show.html.erb</p>
+<%= react_component("headers/ScheduleHeader", { isTeacher: false, avatar: @avatar, title: 'Очередь' }) %>
+<%= react_component("content/schedule", { lesson: @lesson, isTeacher: false }) %>

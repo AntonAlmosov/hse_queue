@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  get 'user/update_user'
   devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
     get 'users/continue_sign_up', to: "users/registrations#continue_sign_up"
     get 'users/settings', to: "users/registrations#settings"
-    post 'users/update_user', to: "users/registrations#update_user"
+    patch 'users/update_user', to: "user#update_user"
   end
 
   resources :group, only: [:index]

@@ -47,8 +47,9 @@ export default ({
     formData.append("name", name);
     formData.append("role", role);
     if (group) formData.append("group", group.id);
+
     axios
-      .post("/users/update_user", formData, {
+      .patch("/users/update_user", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
